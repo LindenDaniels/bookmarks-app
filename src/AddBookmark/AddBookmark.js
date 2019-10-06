@@ -1,4 +1,5 @@
 import React, { Component } from  'react';
+import { withRouter } from 'react-router-dom';
 import config from '../config'
 import './AddBookmark.css';
 
@@ -50,6 +51,7 @@ class AddBookmark extends Component {
         description.value = ''
         rating.value = ''
         this.props.onAddBookmark(data)
+        this.props.history.push('/')
       })
       .catch(error => {
         this.setState({ error })
@@ -137,4 +139,4 @@ class AddBookmark extends Component {
   }
 }
 
-export default AddBookmark;
+export default withRouter(AddBookmark);
